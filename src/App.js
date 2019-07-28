@@ -7,12 +7,13 @@ import {CharacterCard} from './components/characterCard.js'
 class App extends React.Component {
   constructor(props){
     super(props);
-    const current = "Marge";
+    const current = "Homer";
     this.state = { 
       name: current,
       photo: characters[current].photo,
       age: characters[current].age,
-      food: characters[current].food
+      food: characters[current].food,
+      catchphrase: characters[current].catchphrases[1]
     }
   }
   render () {
@@ -23,15 +24,12 @@ class App extends React.Component {
     name={this.state.name}
     age={this.state.age}
     food={this.state.food}
+    catchphrases={this.state.catchphrase}
     />
     </div>
     )
   }
 };
-
-
-
-
 
 
 export default App; 
