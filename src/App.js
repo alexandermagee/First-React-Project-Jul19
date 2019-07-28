@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+/*
 function App() {
   return (
     <div className="App">
@@ -23,4 +23,55 @@ function App() {
   );
 }
 
-export default App;
+*/ 
+
+
+const family = {
+  Homer: "http://interactive.nydailynews.com/2016/05/simpsons-quiz/img/simp1.jpg",
+  Marge: "https://images.immediate.co.uk/production/volatile/sites/3/2016/03/Simpsons_g2013_R1_marge-04bf0d1.jpg?quality=45&crop=3px,170px,1884px,1255px&resize=620,413"
+}
+
+class Surname extends React.Component {
+  render() {
+    return <h1>{this.props.surname}</h1>
+  } 
+;}
+
+class Image extends React.Component {
+  render() {
+    return (
+      <div>
+    <img 
+    src={this.props.src} 
+    className = {this.props.className}
+    ></img>
+    <h1>{this.props.surname}</h1>
+    </div>
+    )
+  } 
+;}
+
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = { familyPhoto: family.Homer,
+    surname: "Simpson" }
+  }
+  render () {
+    return (
+    <div> 
+    <Surname surname={this.state.surname} />
+    <Image className="myImage" src={this.state.familyPhoto} />
+    </div>
+    )
+  }
+};
+
+
+
+
+
+
+export default App; 
+
+
