@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import {characters} from './components/characters.js'
 import {CharacterCard} from './components/characterCard.js'
+import {Selection} from './components/selection.js'
 
 class App extends React.Component {
   constructor(props){
@@ -15,10 +16,23 @@ class App extends React.Component {
       food: characters[current].food,
       catchphrase: characters[current].catchphrases[1]
     }
+    this.chooseCharacter = this.chooseCharacter.bind(this)
   }
+
+  chooseCharacter(newCharacter){
+    this.setState({
+      name: newCharacter,
+      photo: characters[newCharacter].photo,
+      age: characters[newCharacter].age,
+      food: characters[newCharacter].food,
+      catchphrase: characters[newCharacter].catchphrases[1]
+    })
+  } 
+
   render () {
     return (
     <div> 
+    <Selection chooseCharacter={this.chooseCharacter} />
     <CharacterCard 
     photo={this.state.photo}
     name={this.state.name}
